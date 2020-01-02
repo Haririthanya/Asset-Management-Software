@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="indexstyles.css">
+        <script src="indexjs.js"></script>
+        <title>Asset Management System</title>
+    </head>
+    <body>
+        <h1 id="ASM">Asset Management System</h1>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <!-- Sign Up form code goes here Sign Up container : User-->
+                <form action="validateUser.php" method="POST">
+                    <h1>User Login</h1>
+                    <input name="userId" type="text" placeholder="UserId" required />
+                    <input name="userPassword" type="password" placeholder="Password" required/>
+                    <button>Sign In</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <!-- Sign In form code goes here  Sign In container : Admin-->
+                <form action="validateAdmin.php" method="POST">
+                    <h1>Admin Login</h1>
+                    <input name="adminId" type="text" placeholder="UserId" required/>
+                    <input name="adminPassword" type="password" placeholder="Password" required/>
+                    <a href="#">Forgot your password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <!-- The overlay code goes here -->
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Hello, Admin!</h1>
+                        <p>
+                            Welcome back :)<br>
+                            Login to your admin account.
+                        </p>
+                        <button class="ghost" id="signIn" onclick="slider()">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, User!</h1>
+                        <p>Welcome back :)<br>Login to your user account.</p>
+                        <button class="ghost" id="signUp" onclick="slider()">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
