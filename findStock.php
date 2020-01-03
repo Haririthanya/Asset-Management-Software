@@ -152,8 +152,7 @@
             <a href="adminHome.php" class="active">Home</a>
             <a href="manageUsers.php">Manage Users</a>
             <a href="manageStock.php">Manage Stock</a>
-            <a href="#about">Hardware</a>
-            <a href="#software">Software</a>
+            <a href="viewStock.php">View&Filter Stock</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
               <i class="fa fa-bars"></i>
             </a>
