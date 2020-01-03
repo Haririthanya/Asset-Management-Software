@@ -106,8 +106,7 @@ body {
             <a href="manageUsers.php">Manage Users</a>
             <a href="manageStock.php">Manage Stock</a>
             <a href="findStock.php">Find Stock</a>
-            <a href="#about">Hardware</a>
-            <a href="#software">Software</a>
+            <a href="viewStock.php">View&Filter Stock</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
               <i class="fa fa-bars"></i>
             </a>
@@ -135,17 +134,12 @@ body {
                 </p>
             </p>
             <p>
-                <a href="hardware.html"><h2>Hardware <i class="fas fa-laptop"></i></h2></a>
+                <a href="viewStock.php"><h2>View&Filter Stock <i class="fas fa-laptop"></i></h2></a>
                 <p>
                     Get a list of all the hardware components available in the campus.
                 </p>
             </p>
-            <p>
-                <a href="software.html"><h2>Software <i class="fas fa-file-code"></i></h2></a>
-                <p>
-                    Get a list of all the softwares installed and used in the campus.
-                </p>
-            </p>
+           
           </div>
     </body>
 </html>
