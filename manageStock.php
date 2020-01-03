@@ -24,11 +24,11 @@
         $newdateOfPurchase = (new DateTime($dateOfPurchase))->format('Y-m-d');
         $newwarranty = (new DateTime($warranty))->format('Y-m-d');
             if(isset($_POST['add'])) {
-                $stmt = $con->prepare('INSERT INTO stockdetails (serialNo,vendor,dateOfPurchase,valueInRupees,warranty,placeOfDeployment,remarks,assetRegisterEntry,typeOfStock,deviceName,processor,installedRam,macAddress) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+                $stmt = $con->prepare('INSERT INTO stockdetails (serialNo,vendor,dateOfPurchase,valueInRupees,warranty,placeOfDeployment,remarks,assetRegisterEntry,typeofStock,deviceName,processor,installedRam,macAddress) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
                 $stmt->bind_param("sssssssssssss",$serialNo,$vendor,$newdateOfPurchase,$valueInRupees, $newwarranty, $placeOfDeployment,$remarks,$assetRegisterEntry,$type,$deviceName,$processor,$installedRam,$macAddress);
             } 
             else {
-                $stmt = $con->prepare('UPDATE stockdetails SET serialNo = ?, vendor = ?,dateOfPurchase = ?,valueInRupees = ?,warranty=?,placeOfDeployment =?,remarks=?,assetRegisterEntry=?,typeOfStock=?,deviceName=?,processor=?,installedRam=?,macAddress=? WHERE serialNo = ?');
+                $stmt = $con->prepare('UPDATE stockdetails SET serialNo = ?, vendor = ?,dateOfPurchase = ?,valueInRupees = ?,warranty=?,placeOfDeployment =?,remarks=?,assetRegisterEntry=?,typeofStock=?,deviceName=?,processor=?,installedRam=?,macAddress=? WHERE serialNo = ?');
                 $stmt->bind_param("ssssssssssssss",$serialNo,$vendor,$newdateOfPurchase,$valueInRupees, $newwarranty, $placeOfDeployment,$remarks,$assetRegisterEntry,$type,$deviceName,$processor,$installedRam,$macAddress,$serialNo);
             }   
             if ($stmt) {
@@ -66,6 +66,7 @@
             }
             }
         }
+
       $con->close();
 ?>
 <!DOCTYPE html>
@@ -110,7 +111,7 @@
             background-color: #7da3a1;
             color: white;
             }
-            .addupdate,.viewstock {
+            .addupdate,.viewstock,.viewstockfilter {
                 padding-left: 20px;
             }
         /* Hide the link that should open and close the topnav on small screens */
@@ -160,7 +161,7 @@
             background-color: #7da3a1;
             color: white;
             }
-            #addStock,#updateStock,#deleteStock{
+            #addStock,#updateStock,#deleteStock,#viewStock ,#viewStockFilter{
                 border-radius: 20px;
                 border: 1px solid #7da3a1;
                 background-color: #7da3a1;
@@ -192,17 +193,12 @@
             <a href="adminHome.php" class="active">Home</a>
             <a href="manageUsers.php">Manage Users</a>
             <a href="findStock.php">Find Stock</a>
-            <a href="#about">Hardware</a>
-            <a href="#software">Software</a>
+            <a href="viewStock.php">View&Filter Stock</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
               <i class="fa fa-bars"></i>
             </a>
         </div><br>
-        <form action="viewStock.php">
-        <div class="viewstock">
-                <span>View Stock:</span><br>
-                <button>View Stock</button>
-        </form>
+        
         <form action="manageStock.php" method="POST">
             
             </div>
@@ -228,7 +224,13 @@
         <form action="manageStock.php" method="POST">   
             <span>Delete Stock:</span>
             <input type="text" name="serialNo" placeholder="Serial Number" required>
-            <input type="submit" name="delete" id="deleteStock" value="Delete"><br>
+            <input type="submit" name="delete" id="deleteStock" value="Delete"><br><br>
+        </form>
+        <form action="viewStock.php">
+        <div class="viewstock">
+                <span>View Stock:</span><br>
+                <input type="submit" name="viewStock" id="viewStock" value="View Stock"><br><br>
+        </div>        
         </form>
     </body>    
 </html>        
